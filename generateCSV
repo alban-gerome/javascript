@@ -1,0 +1,24 @@
+((a, b) => {
+  let c, d, e = [], f = {"keys":""}, g, h;
+  h = document.createElement("a");
+  for(c in a) for(d in a[c]) f[d] = "";
+  for(d in f){
+    e.push(d);
+    e.push(",");
+  };
+  e.splice(-1, 1);
+  e.push("\r\n");
+  for(c in a){
+    e.push(c);
+    e.push(",");
+    for(d in a[c]) e.push("\"" + a[c][d] + "\"");
+    e.push("\r\n");
+  };
+  g = new Blob([e.join("")], {type:"text/csv;charset=utf-8;"});
+  h.href = URL.createObjectURL(g);
+  h.download = b;
+  h.style.visibility = "hidden";
+  document.body.appendChild(h);
+  h.click();
+  document.body.removeChild(h);
+})(JSON.parse(localStorage.getItem("consoleTableOutput")), "test.csv")
