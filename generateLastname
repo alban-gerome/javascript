@@ -1,0 +1,8 @@
+(()=>{
+  const a = ((new Date() - 0) + "").split("").map((b,c) => {
+    let d = "abcdefghij".split("")[b];
+    return c==0 ? d.toUpperCase() : d;
+  }).join("");
+  console.log(a);
+  setTimeout(async() => await navigator.clipboard.writeText(a), 3000);
+})()
