@@ -75,6 +75,8 @@ Please notice the small JSON at the bottom of the file, and the "ignore" key. Yo
 
 Create a snippet and feel free to edit the file name as needed. Please note that the snippet can only generate a CSV file, no other Excel file type. The snippet will drop the CSV files into your downloads folder. This can't be changed, it's always going to be the downloads folder. Here's the link to the code below:
 
+https://github.com/alban-gerome/javascript/blob/main/generateCSV
+
 [](#Table-of-contents)
 <a id="Unique"></a>
 ### Generate a unique, one-time only, last name
