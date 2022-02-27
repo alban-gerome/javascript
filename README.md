@@ -35,7 +35,7 @@ To create a new snippet:
 4. Click on "+ New snippet"
 5. Name your new snippet
 6. Add Javascript code
-7. Save your snippet
+7. Save your snippet - if there's a * next to the snippet name, it's not saved!
 8. Right-click on your snippet and select "Run" - you could use a Chrome extension to link your snippet to a keyboard shortcut, but your company might not let you install that extension
 
 <a id="DL"></a>
@@ -175,7 +175,56 @@ Remember that the JSON above is for you to figure out. You can find the CSS sele
 <a id="Over"></a>
 ### Override example
 
+That one is only a 11th hour discovery the day before MeasureCamp. I was aware of DevTools Sources overrides but unsure of how they differ from snippets. Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the stesp to do that, you won't be able to say I didn't give you enough time before April Fools' day:
+
+1. Open DevTools
+2. Locate the Sources tab
+3. Locate the Overrides tab under Sources
+4. Click the "Enable Local Overrides" checkbox
+5. Provide a folder name, all Overrides for a given domain will be stored in that folder
+6. The pane on the right will show you the page source code. That's where you want to modify the page HTML. Do your worst!
+7. Save your override
+
+In the example I demoed at MeasureCamp San Francisco I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
+
+```html:
+<script>
+  const NativeImage = Image;  
+  class FakeImage {
+    constructor(w, h) {
+      const nativeImage = new NativeImage(w, h);
+      const handler = {
+        set: (obj, prop, value) => {
+          if(prop === "src") {
+            console.log('gotcha ' + value);
+          }
+          return nativeImage[prop] = value;
+        },
+        get: (target, prop) =>  target[prop];
+      };
+      return new Proxy(nativeImage, handler);
+    };
+  };  
+  Image = FakeImage;
+</script>
+```
+I have found a shorter more modern version that achieves the same thing:
+```html:
+const a = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
+Object.defineProperty(HTMLImageElement.prototype, "src", { 
+  set: function(b){
+    console.log(b);
+    a.set.call(this, b);
+  }
+});
+```
+I just need to get the snippet above to work with script elements with a src attribute and possibly iframes, Ajax requests, fetch requests. That's so fetch! That would expose all network requests the tags we work with fire and then we can isole all Adobe Analytics requests from that trove of information, decode them and generate the CSVs on the fly!
+
+Another use is to inject the Adobe Launch monitoring hooks as per this article by Aaron Hardy: https://medium.com/adobetech/launch-library-monitoring-hooks-c674d16deae3. Please note that the article misses a 4th hook called "ruleConditionFailed".
+
 [Back to Table of Contents](#Table-of-contents)
+
+All these can work together in sequence. For example use the snippet that will automatically fill your pages, flatten the data layer, export to CSV, find the Adobe Analytics request with the override, pass the URL to localStorage, flatten it, export it, next page. Now, you are a true Snippet Jockey!
 
 Alban Gérôme
 27 Jul 2022
