@@ -13,6 +13,10 @@ You might be familiar with the DevTools console and network tab. What about the 
 
 I used to have many tabs in Notepad++, a text editor, which all sorts of scripts in Javascript or Python ready for me to copy and paste. Then I explored DevTools more in depth as ever before to reasearch for an online course on the browser. That's how I stumbed upon the snippets and the overrides in DevTools Sources. Instead of copy and pasting code, I might have created a bookmarklet. Bookmarklets become quickly impractical after a few lines of Javascript because you need to remove all code indentation and line feed-carriage returns. That's not fun, therefore keeping code in a text editor came in handy. But now with DevTools Source snippets, I saved them all as separate snippets.
 
+And then as an 11th hour experiment, I wanted to understand the difference between DevTools Source snippets and overrides. Chrome lets you edit the HTML of a given page just for you. But then the page will forget these changes as you return to that page later or refresh it. With overrides, you can make Chrome remember to reproduce these changes for you. I was able to use that to add an inline script tag in the head of one the pages I work with, before every other script loads on the page.
+
+You might have experience with writing Chrome extensions. That's a lot of fun, but companies often lock down that feature. But DevTools snippets and overrides might still work for you. With these, I am able to circumvent these limitations, but also simplify the code that my code extension would need. I use overrides for code logic I want to apply at page load, and snippets for what I need to do after the page has loaded. By page, I mean both traditional web page and single-page application view.
+
 <a id="Table-of-contents"></a>
 ### Table of contents:
 ----------------------
