@@ -1,0 +1,99 @@
+(a => {
+  const c = typeof digitalData === "object";
+  let d, e;
+  if(!c)                        return null;
+  if(c) d = digitalData;
+  if(!d.page)                         return null;
+  if(typeof d.page !== "object")      return null;
+  if(!(e = d.page.pageName))          return null;
+  if(typeof e !== "string")           return null;
+
+  const f = (g, i) => {
+    if(!/^blur$|^change$|^click$|^input$/i.test(i)) return null;
+    if(/^click$/i.test(i)){
+      g.click();
+    }else{
+      g.dispatchEvent(new Event(i));
+    };
+  };
+
+  const j = (k, l) => {
+    let m = 10;
+    const n = setInterval(function(){
+      if(k() && m > 0){
+        clearInterval(n);
+        l();
+      }else if(m == 0){
+        clearInterval(n);
+        console.log("timeout");
+      }else{
+        m--;
+      };
+    }, 200);
+  };
+
+  const o = p => new Promise(q => {
+    const r = setTimeout(function(){
+      clearTimeout(r);
+      q();
+    }, p);
+  });
+
+  const s = (t, u, v) => {
+    if(typeof t != "string") return null;
+    if(typeof u != "number") return null;
+    let w = () => document.querySelectorAll(t)[u];
+    j(w, () => y([w, v]));
+  };
+ 
+  const y = z => {
+    const aa = typeof z[0] == "string" ? document.querySelector(z[0]) : z[0](), ab = z[1];
+    switch(aa.nodeName){
+      case "A" :
+        if(aa.href) f(aa, "click");
+      break;
+      case "BUTTON" :
+                    f(aa, "click");
+      break;
+      case "INPUT" :
+        if(aa.type){
+          if(/^button$|^checkbox$|^radio$/i.test(aa.type)){
+                    f(aa, "click");
+          };
+          if(/^text$|^email$|^tel$/i.test(aa.type)){
+            if(ab != null){
+                    aa.value = ab;
+                    f(aa, "input");
+                    f(aa, "change");
+            }else{
+                    f(aa, "blur");
+            };
+          };
+        };
+      break;
+      case "SELECT" :
+        if(ab != null){
+                    aa.value = ab;
+                    f(aa, "change");
+        }else{
+                    f(aa, "blur");
+        };
+      break;
+      default :
+                    f(aa, "click");
+    };
+  };
+
+  const ac = ad => Object.entries(ad).map(ae => {
+    if(/^\+/i.test(ae[0])){
+      if(/^\+$/i.test(ae[0]) && typeof ae[1] == "function") ae[1](o, s, ac);
+    }else{
+      j(() => document.querySelector(ae[0]), () => y(ae));
+    };
+  });
+    
+  ac(a[e]);
+ 
+})({
+//Your JSON goes there, have fun!
+});
