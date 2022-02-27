@@ -1,0 +1,49 @@
+(a => {
+  const b = c => {
+    let d = {};
+    c.split("&").map(e => {
+      let f = e.split("=");
+      d[f[0]] = f[1];
+    });
+    return d;
+  };
+  (g => {
+    const h = (i, j) => {
+      let k = {};
+      (function l(m, n){
+        if(m == null){
+                                       k[n] = null;
+        }else{
+          if(m.constructor === Function) k[n] = m.toString();
+          if(m.constructor === Number)   k[n] = m;
+          if(m.constructor === String)   k[n] = m;
+          if(m.constructor === Boolean)  k[n] = m;
+          if(m.constructor === Date)     k[n] = m;
+          if(m.constructor === Array)    m.map((o, p) => l(o, [n, p].join(".")));
+          if(m.constructor === Object){
+            let q = Object.keys(m);
+            if(q.length == 0){
+                                       k[n] = "{}";
+            }else{
+              q.map(o => l(m[o], [n, o].join(".")));
+            };
+          };
+        };
+      })(i, j);
+      return k;
+    };
+    let r = {};
+    const s  = h(g.values,  g.label);
+    Object.keys(s).slice(1,-1).filter(t => {
+      let u, v = !0;
+      if(u = g.ignore) u.map(w => v = t.trim() == [g.label, w].join(".").trim() ? !1 : v);
+      return v;
+    }).map(x  => r[x] = {values  : unescape(s[x])});
+    console.table(r);
+    localStorage.setItem("consoleTableOutput", JSON.stringify(r));
+  })({
+    values : b(a),
+    label  : "s",
+    ignore : "ndh|pf|cid.|a_mid.|id|aamlh|as|.a_mid|.cid|aalh|ce|ns|c.|cm.|ssf|.cm|.c|cc|aamb|t|sdid|mid|g|r|s|c|j|v|k|mcorgid|oid|bw|bh|lrt".split("|")
+  });
+})(localStorage.getItem("aa"));
