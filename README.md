@@ -73,7 +73,7 @@ Please notice the small JSON at the bottom of the file, and the "ignore" key. Yo
 <a id="CSV"></a>
 ### Export a console table to CSV
 
-Create a snippet and feel free to edit the file name as needed. Please note that the snippet can only generate a CSV file, no other Excel file type. The snippet will drop the CSV files into your downloads folder. This can't be changed, it's always going to be the downloads folder. Here's the link to the code below:
+Create a snippet and feel free to edit the file name as needed. Please note that the snippet can only generate a CSV file, no other Excel file type. The snippet will drop the CSV files into your downloads folder. This can't be changed, it's always going to be the downloads folder. It deals with the commas for you, so no extra unwanted columns in your CSV files, just 2 columns, always. Here's the link to the code below:
 
 https://github.com/alban-gerome/javascript/blob/main/generateCSV
 
@@ -91,6 +91,8 @@ Then you could replace any zeroes to the letter "a", ones to "b", twos to "c" et
 
 * Print the name into the console
 * Give you 3 seconds to click into any text field of your choice on a web page and ready to paste there
+
+https://github.com/alban-gerome/javascript/blob/main/generateLastname
 
 [Back to Table of Contents](#Table-of-contents)
 
@@ -177,6 +179,8 @@ Here are below examples of 4 full top-level sections in your JSON:
   }
 ```
 Remember that the JSON above is for you to figure out. You can find the CSS selectors of an element by right-clicking on it, inspect the element, right click on it and on the DevTools element tab, right-click on the element there and copy the selector. But if the selector is too long, or does not return a unique element create a "+" key.
+
+https://github.com/alban-gerome/javascript/blob/main/next
 
 [Back to Table of Contents](#Table-of-contents)
 
