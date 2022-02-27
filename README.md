@@ -64,6 +64,10 @@ This will only work with Adobe Anaytics tracking requests, not Google Analytics.
 localStorage.setItem("aa","[paste your Adobe Analytics tracking requests here]");
 ```
 
+https://github.com/alban-gerome/javascript/blob/main/adobeanalytics
+
+Please notice the small JSON at the bottom of the file, and the "ignore" key. You can add or remove keys that are not relevant for your analysis, remove all the noise and keep only what matters. It's a pipe-separated list (|).
+
 [Back to Table of Contents](#Table-of-contents)
 
 <a id="CSV"></a>
