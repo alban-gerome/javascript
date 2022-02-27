@@ -43,6 +43,8 @@ To create a new snippet:
 
 This is not about the event-driven data layer. That sort of data layer is an array. The one I am dealing with here is a JSON object, and the code snippet below will flatten that JSON and return a console table. You can create the snippet with the code provided with this link or run it if you have already done so:
 
+https://github.com/alban-gerome/javascript/blob/main/datalayer
+
 [](#Table-of-contents)
 
 <a id="AA"></a>
