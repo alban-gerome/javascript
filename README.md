@@ -43,7 +43,7 @@ To create a new snippet:
 
 This is not about the event-driven data layer. That sort of data layer is an array. The one I am dealing with here is a JSON object, and the code snippet below will flatten that JSON and return a console table. You can create the snippet with the code provided with this link or run it if you have already done so:
 
-(#Table-of-contents)
+[](#Table-of-contents)
 <a id="AA"></a>
 ### Flatten an Adobe Analytics tracking request URL
 
@@ -61,13 +61,13 @@ This will only work with Adobe Anaytics tracking requests, not Google Analytics.
 localStorage.setItem("aa","[paste your Adobe Analytics tracking requests here]");
 ```
 
-(#Table-of-contents)
+[](#Table-of-contents)
 <a id="CSV"></a>
 ### Export a console table to CSV
 
 Create a snippet and feel free to edit the file name as needed. Please note that the snippet can only generate a CSV file, no other Excel file type. The snippet will drop the CSV files into your downloads folder. This can't be changed, it's always going to be the downloads folder. Here's the link to the code below:
 
-(#Table-of-contents)
+[](#Table-of-contents)
 <a id="Unique"></a>
 ### Generate a unique, one-time only, last name
 
@@ -82,7 +82,7 @@ Then you could replace any zeroes to the letter "a", ones to "b", twos to "c" et
 * Print the name into the console
 * Give you 3 seconds to click into any text field of your choice on a web page and ready to paste there
 
-(#Table-of-contents)
+[](#Table-of-contents)
 <a id="Next"></a>
 ### Step through pages and auto-fill forms
 
@@ -171,7 +171,7 @@ Remember that the JSON above is for you to figure out. You can find the CSS sele
 <a id="Over"></a>
 ### Override example
 
-(#Table-of-contents)
+[](#Table-of-contents)
 
 Alban Gérôme
 27 Jul 2022
