@@ -1,0 +1,36 @@
+(a => {
+  const b = (c, d) => {
+    let e = {};
+    (function f(g, h){
+      if(g == null){
+                                     e[h] = null;
+      }else{
+        if(g.constructor===Function) e[h] = g.toString();
+        if(g.constructor===Number)   e[h] = g;
+        if(g.constructor===String)   e[h] = g;
+        if(g.constructor===Boolean)  e[h] = g;
+        if(g.constructor===Date)     e[h] = g;
+        if(g.constructor===Array)    g.map((i, j) => f(i, [h, j].join(".")));
+        if(g.constructor===Object){
+          let b = Object.keys(g);
+          if(b.length==0){
+                                     e[h] = "{}";
+          }else{
+            b.map(i => f(g[i], [h, i].join(".")));
+          };
+        };
+      };
+    })(c, d);
+    return e;
+  };
+  let k = {};
+  const l  = b(a.left.start,  a.left.label);
+  Object.keys(l).map(m  => k[m] = {values  : l[m]});
+  console.table(k);
+  localStorage.setItem("consoleTableOutput", JSON.stringify(k));
+})({
+  left  : {
+    start : digitalData,
+    label : "digitalData"
+  }
+});
