@@ -6,7 +6,7 @@ Chrome DevTools snippets and overrides for increased productivity
 
 WARNING: If you report to a manager whose compensation depends on the size of the team they manage, do not use these scripts! It will ruin their plans to grow the team because you will be able to do so much more by yourself!
 
-You might be familiar with the DevTools console and network tab. What about the Sources tab? This will contain 2 features that you might not know:
+You might be familiar with the DevTools Console and Network tab. What about the Sources tab? This will contain 2 features that you might not know:
 
 * Snippets
 * Overrides
