@@ -22,10 +22,10 @@ You might have experience with writing Chrome extensions. That's a lot of fun, b
 ----------------------
 * [Flatten a CXDDL data layer (digitalData)](#DL)
 * [Flatten an Adobe Analytics tracking request URL](#AA)
-* [Export a console table to CSV] (#CSV)
+* [Export a console table to CSV](#CSV)
 * [Generate a unique, one-time only, last name](#Unique)
 * [Step through pages and auto-fill forms](#Next)
-* [Override example]
+* [Override example](#Over)
 
 To create a new snippet:
 
@@ -168,7 +168,7 @@ Here are below examples of 4 full top-level sections in your JSON:
 Remember that the JSON above is for you to figure out. You can find the CSS selectors of an element by right-clicking on it, inspect the element, right click on it and on the DevTools element tab, right-click on the element there and copy the selector. But if the selector is too long, or does not return a unique element create a "+" key.
 
 (#Table-of-contents)
-<a id=""></a>
+<a id="Over"></a>
 ### Override example
 
 (#Table-of-contents)
