@@ -20,11 +20,11 @@ You might have experience with writing Chrome extensions. That's a lot of fun, b
 <a id="Table-of-contents"></a>
 ### Table of contents:
 ----------------------
-* [Flatten a CXDDL data layer (digitalData)](#)
-* [Flatten an Adobe Analytics tracking request URL] (#)
-* [Export a console table to CSV] (#)
-* [Generate a unique, one-time only, last name] (#)
-* [Step through pages and auto-fill forms] (#)
+* [Flatten a CXDDL data layer (digitalData)](#DL)
+* [Flatten an Adobe Analytics tracking request URL](#AA)
+* [Export a console table to CSV] (#CSV)
+* [Generate a unique, one-time only, last name](#Unique)
+* [Step through pages and auto-fill forms](#Next)
 * [Override example]
 
 To create a new snippet:
@@ -38,13 +38,13 @@ To create a new snippet:
 7. Save your snippet
 8. Right-click on your snippet and select "Run" - you could use a Chrome extension to link your snippet to a keyboard shortcut, but your company might not let you install that extension
 
-<a id=""></a>
+<a id="DL"></a>
 ### Flatten a CXDDL data layer (digitalData)
 
 This is not about the event-driven data layer. That sort of data layer is an array. The one I am dealing with here is a JSON object, and the code snippet below will flatten that JSON and return a console table. You can create the snippet with the code provided with this link or run it if you have already done so:
 
 (#Table-of-contents)
-<a id=""></a>
+<a id="AA"></a>
 ### Flatten an Adobe Analytics tracking request URL
 
 This will only work with Adobe Anaytics tracking requests, not Google Analytics.
@@ -62,13 +62,13 @@ localStorage.setItem("aa","[paste your Adobe Analytics tracking requests here]")
 ```
 
 (#Table-of-contents)
-<a id=""></a>
+<a id="CSV"></a>
 ### Export a console table to CSV
 
 Create a snippet and feel free to edit the file name as needed. Please note that the snippet can only generate a CSV file, no other Excel file type. The snippet will drop the CSV files into your downloads folder. This can't be changed, it's always going to be the downloads folder. Here's the link to the code below:
 
 (#Table-of-contents)
-<a id=""></a>
+<a id="Unique"></a>
 ### Generate a unique, one-time only, last name
 
 We used to use the same first name, last name, date of birth details for all our testing. That caused a database constraint error so we were told to use a random combination. Random, gotcha, no problem. How do you keep track of them? All it takes is one of these 3 items to change to have a unique combination. As it turns out, Javascript can return the date down to the second and you can convert that to the number of seconds elapsed since Jan, 1st 1970 with this line of code:
@@ -83,7 +83,7 @@ Then you could replace any zeroes to the letter "a", ones to "b", twos to "c" et
 * Give you 3 seconds to click into any text field of your choice on a web page and ready to paste there
 
 (#Table-of-contents)
-<a id=""></a>
+<a id="Next"></a>
 ### Step through pages and auto-fill forms
 
 The code for this snippet comes into 2 parts. At the very bottom you will need to provide a JSON that will be specific to your web journeys. When you do, this snippet will fill all forms fields on your web page and take you to the next page. All you do is go, next page, next page, next page. The snippet requires the CXDDL (digitalData) data layer and expects the page name to be under digitalData.page.pageName. But you could make it work with another type of data layer.
