@@ -11,11 +11,11 @@ You might be familiar with the DevTools Console and Network tab. What about the 
 * Snippets
 * Overrides
 
-I used to have many tabs in Notepad++, a text editor, which all sorts of scripts in Javascript or Python ready for me to copy and paste. Then I explored DevTools more in depth as ever before to research for an online course on the browser. That's how I stumbed upon the snippets and the overrides in DevTools Sources. Instead of copy and pasting code, I might have created a bookmarklet. Bookmarklets become quickly impractical after a few lines of Javascript because you need to remove all code indentation and line feed-carriage returns. That's not fun, therefore keeping code in a text editor came in handy. But now with DevTools Source snippets, I saved them all as separate snippets.
+I used to have many tabs in Notepad++, a text editor, which contained all sorts of scripts in Javascript or Python ready for me to copy and paste. Then I explored DevTools more in depth as ever before to research for an online course on the browser. That's how I stumbed upon the snippets and the overrides in DevTools Sources. Instead of copying and pasting code, I might have created a bookmarklet. Bookmarklets become quickly impractical after a few lines of Javascript because you need to remove all code indentation and line feed-carriage returns. That's not fun, therefore keeping code in a text editor came in handy. But now with DevTools Source snippets, I saved them all as separate snippets.
 
 And then as an 11th hour experiment, I wanted to understand the difference between DevTools Source snippets and overrides. Chrome lets you edit the HTML of a given page just for you. But then the page will forget these changes as you return to that page later or refresh it. With overrides, you can make Chrome remember to reproduce these changes for you. I was able to use that to add an inline script tag in the head of one the pages I work with, before every other script loads on the page.
 
-You might have experience with writing Chrome extensions. That's a lot of fun, but companies often lock down that feature. But DevTools snippets and overrides might still work for you. With these, I am able to circumvent these limitations, but also simplify the code that my code extension would need. I use overrides for code logic I want to apply at page load, and snippets for what I need to do after the page has loaded. By page, I mean both traditional web page and single-page application view.
+You might have experience with writing Chrome extensions. That's a lot of fun, but companies often lock down that feature. DevTools snippets and overrides might still work for you, though. With these, I am able to circumvent these limitations, but also simplify the code that my code extension would need. I use overrides for code logic I want to apply at page load, and snippets for what I need to do after the page has loaded. By page, I mean both traditional web page and single-page application view.
 
 <a id="Table-of-contents"></a>
 ### Table of contents:
@@ -41,7 +41,7 @@ To create a new snippet:
 <a id="DL"></a>
 ### Flatten a CXDDL data layer (digitalData)
 
-This is not about the event-driven data layer. That sort of data layer is an array. The one I am dealing with here is a JSON object, and the code snippet below will flatten that JSON and return a console table. You can create the snippet with the code provided with this link or run it if you have already done so:
+This is not about the event-driven data layer. That sort of data layer is an array, a queue to be precise. The one I am dealing with here is a JSON object, and the code snippet below will flatten that JSON and return a console table. You can create the snippet with the code provided with this link or run it if you have already done so:
 
 https://github.com/alban-gerome/javascript/blob/main/datalayer
 
@@ -124,7 +124,7 @@ Here's another example for several elements that have no id attributes on a give
 (o, s, ac) => [11, 13, 15, 16, 21, 25].map(aj => s(".myLifeUWPaddingleft label", aj, null))
 ```
 
-The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null, the snippet will click on all 6 DOM elements. Remember that the first items is item #0, item #1 is the second item, it's zero=based!
+The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null, the snippet will click on all 6 DOM elements. Remember that the first items is item #0, item #1 is the second item, it's zero-based!
 
 If you need to wait before interacting with a specific field, here's an example:
 
@@ -140,23 +140,23 @@ Here are below examples of 4 full top-level sections in your JSON:
 
 ```js:
 "Page 1" : {
-   "+"                            : () => {
+   "+"                            : () => { // Adobe Launch debug mode enabled for you so you don't need to remember to do so
       if(typeof _satellite == "undefined")          return null;
       if(typeof _satellite.setDebug == "undefined") return null;
       _satellite.setDebug(true);
     },
-    "#onetrust-accept-btn-handler"             : null,
-    "#dobDay1"                                 : 10,
+    "#onetrust-accept-btn-handler"             : null, //click on that
+    "#dobDay1"                                 : 10, // set the value of element as identified by CSS selector "#dobDay1" to 10
     "#dobMonth1"                               : 10,
     "#dobYear1"                                : 1970,
-    "#manualAddress"                           : null,
+    "#manualAddress"                           : null, //click on that
     "#addressline1"                            : "5th Floor",
     "#addressline2"                            : "My street",
     "#addressline4"                            : "Some town",
     "#postcode"                                : "Some postcode",
     "#UseAddress"                              : null, //click on that
     "#email"                                   : "mail@mail.com",
-    "#getQuote"                                : null
+    "#getQuote"                                : null //click on that
   },
   "Page 2" : {
     "#coverTypeLevelLabel"                     : null,
@@ -187,7 +187,7 @@ https://github.com/alban-gerome/javascript/blob/main/next
 <a id="Over"></a>
 ### Override example
 
-Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the steps to do that, you won't be able to say I didn't give you enough time before April Fools' day:
+Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, clears the cache, restarts the browser, the computer even, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for any saved changes for that page and apply them. Here are the steps to do that, you won't be able to say I didn't give you enough time before April Fools' day:
 
 1. Open DevTools
 2. Locate the Sources tab
@@ -197,9 +197,9 @@ Imagine you want to do a prank to your manager. You could take your production w
 6. The pane on the right will show you the page source code. That's where you want to modify the page HTML. Do your worst!
 7. Save your override
 
-Please note that an override applies only to one page. If you need the same code to override all your pages, you will need one override for each page. You could put the code into a single file and your override woud consist of a single script tag with a src attribute. You might see that file blocked with the error "(blocked:other)". There may be a Chrome setting to unblock that script.
+Please note that an override applies only to one page. If you need the same code to override all your pages, you will need one override for each page. You could put the code into a single file and your override woud consist of a single script tag with a src attribute. You might see that file blocked with the error "(blocked:other)". There may be a Chrome setting to unblock that script, probably under chrome://settings or chrome://flags.
 
-In the example I demoed at MeasureCamp North Americao I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
+In the example I demoed at MeasureCamp North America I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
 
 ```html:
 <script>
@@ -222,7 +222,7 @@ In the example I demoed at MeasureCamp North Americao I added an inline script b
   Image = FakeImage;
 </script>
 ```
-I have found a shorter more modern version that achieves the same thing:
+I managed to write a shorter more modern version that achieves the same thing based on code I found at http://www.html5blackbook.com/2015/01/es-5-properties-and-browser-object-model.html:
 ```html:
 const a = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
 Object.defineProperty(HTMLImageElement.prototype, "src", { 
@@ -234,7 +234,7 @@ Object.defineProperty(HTMLImageElement.prototype, "src", {
 ```
 I just need to get the snippet above to work with script elements with a src attribute and possibly iframes, Ajax requests, fetch requests. That's so fetch! That would expose all network requests the tags we work with fire and then we can isolate all Adobe Analytics requests from that trove of information, decode them and generate the CSVs on the fly!
 
-Another use is to inject the Adobe Launch monitoring hooks as per this article by Aaron Hardy: https://medium.com/adobetech/launch-library-monitoring-hooks-c674d16deae3. Please note that the article misses a 4th hook called "ruleConditionFailed".
+Another use is to inject the Adobe Launch monitoring hooks as per this article by Aaron Hardy: https://medium.com/adobetech/launch-library-monitoring-hooks-c674d16deae3. Please note that the article misses a 4th hook called "ruleConditionFailed". That's no oversight, they added it after the article was posted.
 
 [Back to table of contents](#Table-of-contents)
 
