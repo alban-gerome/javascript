@@ -61,7 +61,7 @@ This will only work with Adobe Anaytics tracking requests, not Google Analytics.
 7. Create the snippet with the code below or run it
 
 ```js:
-localStorage.setItem("aa","[paste your Adobe Analytics tracking requests here]");
+localStorage.setItem("aa","[paste your Adobe Analytics tracking request here]");
 ```
 
 https://github.com/alban-gerome/javascript/blob/main/adobeanalytics
