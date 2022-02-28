@@ -187,7 +187,7 @@ https://github.com/alban-gerome/javascript/blob/main/next
 <a id="Over"></a>
 ### Override example
 
-Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the stesp to do that, you won't be able to say I didn't give you enough time before April Fools' day:
+Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the steps to do that, you won't be able to say I didn't give you enough time before April Fools' day:
 
 1. Open DevTools
 2. Locate the Sources tab
@@ -196,6 +196,8 @@ Imagine you want to do a prank to your manager. You could take your production w
 5. Provide a folder name, all Overrides for a given domain will be stored in that folder
 6. The pane on the right will show you the page source code. That's where you want to modify the page HTML. Do your worst!
 7. Save your override
+
+Please note that an override applies only to one page. If you need the same code to override all your pages, you will need one override for each page. You could put the code into a single file and your override woud consist of a single script tag with a src attribute. You might see that file blocked with the error "(blocked:other)". There may be a Chrome setting to unblock that script.
 
 In the example I demoed at MeasureCamp North Americao I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
 
