@@ -134,7 +134,7 @@ If you need to wait before interacting with a specific field, here's an example:
   "#getQuote"                              : null
 }))
 ```
-Notice the number 1000 above. That's the number of milliseconds you need the snippet to wait. 1000 milliseconds means 1 second, 3000 means 3 seconds.
+Why "+"? Because no valid CSS selector I can think of starts with a "+", it's a forbidden character in HTML tag names. Also, what's the number 1000 above for? That's the number of milliseconds you need the snippet to wait. 1000 milliseconds means 1 second, 3000 means 3 seconds.
 
 Here are below examples of 4 full top-level sections in your JSON:
 
