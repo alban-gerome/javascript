@@ -77,7 +77,7 @@ Create a snippet and feel free to edit the file name as needed. Please note that
 
 https://github.com/alban-gerome/javascript/blob/main/generateCSV
 
-[Back to Table of contents](#Table-of-contents)
+[Back to table of contents](#Table-of-contents)
 <a id="Unique"></a>
 ### Generate a unique, one-time only, last name
 
