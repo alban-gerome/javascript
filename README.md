@@ -158,7 +158,7 @@ Here are below examples of 4 full top-level sections in your JSON:
     "#email"                                   : "mail@mail.com",
     "#getQuote"                                : null
   },
-  "Quote Start" : {
+  "Page 2" : {
     "#coverTypeLevelLabel"                     : null,
     "#policyTypeSingleLabel"                   : null,
     "#monthlypremium"                          : "20",
@@ -169,11 +169,11 @@ Here are below examples of 4 full top-level sections in your JSON:
       "#getQuote"                              : null
     }))
   },
-  "Work and Travel" : {
+  "Page 3" : {
     "+"                                        : (o, s, ac) => [0, 8, 10, 12, 14].map(ai => s(".myLifeUWPaddingleft label", ai, null)), //click on 5 radio buttons
     "#acceptButton"                            : null
   }, 
-  "Leisure Activities" : {
+  "Page 4" : {
     "+"                                        : (o, s, ac) => s(".myLifeUWPaddingleft label", 7, null), //find that single element and click on it
     "#acceptButton"                            : null
   }
