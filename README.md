@@ -45,7 +45,7 @@ This is not about the event-driven data layer. That sort of data layer is an arr
 
 https://github.com/alban-gerome/javascript/blob/main/datalayer
 
-[](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 
 <a id="AA"></a>
 ### Flatten an Adobe Analytics tracking request URL
@@ -68,7 +68,7 @@ https://github.com/alban-gerome/javascript/blob/main/adobeanalytics
 
 Please notice the small JSON at the bottom of the file, and the "ignore" key. You can add or remove keys that are not relevant for your analysis, remove all the noise and keep only what matters. It's a pipe-separated list (|).
 
-[Back to Table of Contents](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 
 <a id="CSV"></a>
 ### Export a console table to CSV
@@ -77,7 +77,7 @@ Create a snippet and feel free to edit the file name as needed. Please note that
 
 https://github.com/alban-gerome/javascript/blob/main/generateCSV
 
-[](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 <a id="Unique"></a>
 ### Generate a unique, one-time only, last name
 
@@ -94,7 +94,7 @@ Then you could replace any zeroes to the letter "a", ones to "b", twos to "c" et
 
 https://github.com/alban-gerome/javascript/blob/main/generateLastname
 
-[Back to Table of Contents](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 
 <a id="Next"></a>
 ### Step through pages and auto-fill forms
@@ -182,7 +182,7 @@ Remember that the JSON above is for you to figure out. You can find the CSS sele
 
 https://github.com/alban-gerome/javascript/blob/main/next
 
-[Back to Table of Contents](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 
 <a id="Over"></a>
 ### Override example
@@ -234,7 +234,7 @@ I just need to get the snippet above to work with script elements with a src att
 
 Another use is to inject the Adobe Launch monitoring hooks as per this article by Aaron Hardy: https://medium.com/adobetech/launch-library-monitoring-hooks-c674d16deae3. Please note that the article misses a 4th hook called "ruleConditionFailed".
 
-[Back to Table of Contents](#Table-of-contents)
+[Back to Table of contents](#Table-of-contents)
 
 All these can work together in sequence. For example use the snippet that will automatically fill your pages, flatten the data layer, export to CSV, find the Adobe Analytics request with the override, pass the URL to localStorage, flatten it, export it, next page. Now, you are a true Snippet Jockey!
 
