@@ -1,4 +1,4 @@
-MeasureCamp San Francisco - Feb 26th 2022
+MeasureCamp North America - Feb 26th 2022
 ====================================
 
 Chrome DevTools snippets and overrides for increased productivity
@@ -11,7 +11,7 @@ You might be familiar with the DevTools Console and Network tab. What about the 
 * Snippets
 * Overrides
 
-I used to have many tabs in Notepad++, a text editor, which all sorts of scripts in Javascript or Python ready for me to copy and paste. Then I explored DevTools more in depth as ever before to reasearch for an online course on the browser. That's how I stumbed upon the snippets and the overrides in DevTools Sources. Instead of copy and pasting code, I might have created a bookmarklet. Bookmarklets become quickly impractical after a few lines of Javascript because you need to remove all code indentation and line feed-carriage returns. That's not fun, therefore keeping code in a text editor came in handy. But now with DevTools Source snippets, I saved them all as separate snippets.
+I used to have many tabs in Notepad++, a text editor, which all sorts of scripts in Javascript or Python ready for me to copy and paste. Then I explored DevTools more in depth as ever before to research for an online course on the browser. That's how I stumbed upon the snippets and the overrides in DevTools Sources. Instead of copy and pasting code, I might have created a bookmarklet. Bookmarklets become quickly impractical after a few lines of Javascript because you need to remove all code indentation and line feed-carriage returns. That's not fun, therefore keeping code in a text editor came in handy. But now with DevTools Source snippets, I saved them all as separate snippets.
 
 And then as an 11th hour experiment, I wanted to understand the difference between DevTools Source snippets and overrides. Chrome lets you edit the HTML of a given page just for you. But then the page will forget these changes as you return to that page later or refresh it. With overrides, you can make Chrome remember to reproduce these changes for you. I was able to use that to add an inline script tag in the head of one the pages I work with, before every other script loads on the page.
 
@@ -116,7 +116,7 @@ With the code above, the "s" function takes 3 parameters:
 
 1. CSS selector that returns several elements
 2. Which one of the many items the selector above returns, which one is the snippet needs to interact with
-3. Same as the value you pass for when your key is a CSS selector for a unique DOM element - null means "no value no enter, just click on it"
+3. Same as the value you pass for when your key is a CSS selector for a unique DOM element - null means "no value to enter, just click on it"
 
 Here's another example for several elements that have no id attributes on a given page
 
@@ -124,7 +124,7 @@ Here's another example for several elements that have no id attributes on a give
 (o, s, ac) => [11, 13, 15, 16, 21, 25].map(aj => s(".myLifeUWPaddingleft label", aj, null))
 ```
 
-The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null, the snippet will click on all 6 DOM elements.
+The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null, the snippet will click on all 6 DOM elements. Remember that the first items is item #0, item #1 is the second item, it's zero=based!
 
 If you need to wait before interacting with a specific field, here's an example:
 
@@ -187,7 +187,7 @@ https://github.com/alban-gerome/javascript/blob/main/next
 <a id="Over"></a>
 ### Override example
 
-That one is only a 11th hour discovery the day before MeasureCamp. I was aware of DevTools Sources overrides but unsure of how they differ from snippets. Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the stesp to do that, you won't be able to say I didn't give you enough time before April Fools' day:
+Imagine you want to do a prank to your manager. You could take your production website home page, inspect elements on the screen and edit the entire HTML. But your boss was not born yesterday and will hit refresh and your prank falls flat. But what if you could save the changes so that when your boss refreshes the screen, oh shock and horror, it's still there! You can do that with overrides. Chrome will do a lookup for saved changes for that page and apply them. Here are the stesp to do that, you won't be able to say I didn't give you enough time before April Fools' day:
 
 1. Open DevTools
 2. Locate the Sources tab
@@ -197,7 +197,7 @@ That one is only a 11th hour discovery the day before MeasureCamp. I was aware o
 6. The pane on the right will show you the page source code. That's where you want to modify the page HTML. Do your worst!
 7. Save your override
 
-In the example I demoed at MeasureCamp San Francisco I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
+In the example I demoed at MeasureCamp North Americao I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
 
 ```html:
 <script>
@@ -230,7 +230,7 @@ Object.defineProperty(HTMLImageElement.prototype, "src", {
   }
 });
 ```
-I just need to get the snippet above to work with script elements with a src attribute and possibly iframes, Ajax requests, fetch requests. That's so fetch! That would expose all network requests the tags we work with fire and then we can isole all Adobe Analytics requests from that trove of information, decode them and generate the CSVs on the fly!
+I just need to get the snippet above to work with script elements with a src attribute and possibly iframes, Ajax requests, fetch requests. That's so fetch! That would expose all network requests the tags we work with fire and then we can isolate all Adobe Analytics requests from that trove of information, decode them and generate the CSVs on the fly!
 
 Another use is to inject the Adobe Launch monitoring hooks as per this article by Aaron Hardy: https://medium.com/adobetech/launch-library-monitoring-hooks-c674d16deae3. Please note that the article misses a 4th hook called "ruleConditionFailed".
 
