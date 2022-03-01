@@ -222,7 +222,7 @@ In the example I demoed at MeasureCamp North America I added an inline script bl
   Image = FakeImage;
 </script>
 ```
-I managed to write a shorter more modern version that achieves the same thing based on code I found at http://www.html5blackbook.com/2015/01/es-5-properties-and-browser-object-model.html:
+I managed to write a shorter more modern version that achieves the same thing based on code by Vidlan Softic (http://www.html5blackbook.com/2015/01/es-5-properties-and-browser-object-model.html):
 ```html:
 const a = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
 Object.defineProperty(HTMLImageElement.prototype, "src", { 
