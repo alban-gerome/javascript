@@ -199,7 +199,7 @@ Imagine you want to do a prank to your manager. You could take your production w
 
 Please note that an override applies only to one page. If you need the same code to override all your pages, you will need one override for each page. You could put the code into a single file and your override woud consist of a single script tag with a src attribute. You might see that file blocked with the error "(blocked:other)". There may be a Chrome setting to unblock that script, probably under chrome://settings or chrome://flags.
 
-In the example I demoed at MeasureCamp North America I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/).
+In the example I demoed at MeasureCamp North America I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/):
 
 ```html:
 <script>
