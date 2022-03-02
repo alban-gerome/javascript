@@ -4,7 +4,7 @@ MeasureCamp North America - Feb 26th 2022
 Chrome DevTools snippets and overrides for increased productivity
 -----------------------------------------------------------------
 
-WARNING: If you report to a manager whose compensation depends on the size of the team they manage, do not use these scripts! It will ruin their plans to grow the team because you will be able to do so much more by yourself!
+**WARNING: If you report to a manager whose compensation depends on the size of the team they manage, do not use these scripts! It will ruin their plans to grow the team because you will be able to do so much more by yourself!**
 
 You might be familiar with the DevTools Console and Network tab. What about the Sources tab? This will contain 2 features that you might not know:
 
@@ -180,7 +180,7 @@ Here are below examples of 4 full top-level sections in your JSON:
 ```
 Remember that the JSON above is for you to figure out. You can find the CSS selectors of an element by right-clicking on it, inspect the element, right click on it and on the DevTools element tab, right-click on the element there and copy the selector. But if the selector is too long, or does not return a unique element create a "+" key.
 
-Also, I noticed last night a new "Recorder" tab in DevTools. It lets you record a journey, generates a script for you that will let you replay that journey. I quickly ran into issues where a form element was not present quickly enough on the time, a timeout occurred and the replay stopped. My script above tries 10 times every 200 milliseconds, i.e. a max wait time of 2 seconds. In the code below, feel free to tweak m (max tries) and the interval:
+Also, I noticed last night a new "Recorder" tab in DevTools. It lets you record a journey, generates a script for you that will let you replay that journey. I quickly ran into issues where a form element was not present quickly enough on the time, a timeout occurred and the replay stopped. My script above tries 10 times every 200 milliseconds, i.e. a max wait time of 2 seconds. In the code below, feel free to tweak **m** (max tries - set to 10 below) and the **interval** (set to 200 below):
 
 ```js:
 const j = (k, l) => {
@@ -200,6 +200,14 @@ const j = (k, l) => {
 ```
 
 https://github.com/alban-gerome/javascript/blob/main/next
+
+**Known issues**: The script seems to ignore clicks on buttons in some cases, or fails to find form elements when the form displays progressively. For example a page contains a button, clicking on that button reveals a drop-down that was previously hidden. Making a selection in that drop-down reveals a text field that was also previously hidden. Using a delay as below should work but does not work for me. I have not figured out what the issue is yet:
+
+```js:
+"+"            : (o, s, ac) => o(5000).then(() => ac({// wait 5000 milliseconds = 5 seconds
+  "#someField" : null
+}))
+```
 
 [Back to table of contents](#Table-of-contents)
 
