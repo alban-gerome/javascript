@@ -184,7 +184,7 @@ Also, I noticed last night a new "Recorder" tab in DevTools. It lets you record 
 
 ```js:
 const j = (k, l) => {
-  let m = 10;
+  let m = 10;// max tries
   const n = setInterval(function(){
     if(k() && m > 0){
       clearInterval(n);
@@ -195,7 +195,7 @@ const j = (k, l) => {
     }else{
       m--;
     };
-  }, 200);
+  }, 200);// interval
 };
 ```
 
