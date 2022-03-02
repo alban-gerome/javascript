@@ -180,6 +180,25 @@ Here are below examples of 4 full top-level sections in your JSON:
 ```
 Remember that the JSON above is for you to figure out. You can find the CSS selectors of an element by right-clicking on it, inspect the element, right click on it and on the DevTools element tab, right-click on the element there and copy the selector. But if the selector is too long, or does not return a unique element create a "+" key.
 
+Also, I noticed last night a new "Recorder" tab in DevTools. It lets you record a journey, generates a script for you that will let you replay that journey. I quickly ran into issues where a form element was not present quickly enough on the time, a timeout occurred and the replay stopped. My script above tries 10 times every 200 milliseconds, i.e. a max wait time of 2 seconds. In the code below, feel free to tweak m (max tries) and the interval:
+
+```js:
+const j = (k, l) => {
+  let m = 10;
+  const n = setInterval(function(){
+    if(k() && m > 0){
+      clearInterval(n);
+      l();
+    }else if(m == 0){
+      clearInterval(n);
+      console.log("timeout");
+    }else{
+      m--;
+    };
+  }, 200);
+};
+```
+
 https://github.com/alban-gerome/javascript/blob/main/next
 
 [Back to table of contents](#Table-of-contents)
@@ -198,6 +217,13 @@ Imagine you want to do a prank to your manager. You could take your production w
 7. Save your override
 
 Please note that an override applies only to one page. If you need the same code to override all your pages, you will need one override for each page. You could put the code into a single file and your override woud consist of a single script tag with a src attribute. You might see that file blocked with the error "(blocked:other)". There may be a Chrome setting to unblock that script, probably under chrome://settings or chrome://flags.
+
+To disable all overrides, here are the steps:
+
+1. Open DevTools
+2. Locate the Sources tab
+3. Locate the Overrides tab under Sources
+4. Uncheck the "Enable Local Overrides" checkbox
 
 In the example I demoed at MeasureCamp North America I added an inline script block that will print to the console the full URL for all image requests that fired on the page. That's most of your marketing pixels, Adobe Analytics etc, but not the base tags because they are based on script tags rather than images. So, only images and the script is straight off an old post by O'Reilly books writer Stoyan Stefanov (https://www.phpied.com/intercepting-new-image-src-requests/):
 
