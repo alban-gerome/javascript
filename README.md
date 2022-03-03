@@ -248,7 +248,7 @@ In the example I demoed at MeasureCamp North America I added an inline script bl
           }
           return nativeImage[prop] = value;
         },
-        get: (target, prop) =>  target[prop];
+        get: (target, prop) =>  target[prop]
       };
       return new Proxy(nativeImage, handler);
     };
