@@ -106,7 +106,7 @@ The JSON is 2-levels deep:
 1. Page names as found under digitalData.page.pageName
 2. A CSS selector for the element to be interacted with as the key, and the value for that element
 
-For best results the elements need to have an id attribute value. But there is none, use the default "+" key with the following value:
+For best results the elements need to have an id attribute value. But if there is none, use the default "+" key with the following value:
 
 ```js:
 (o, s, ac) => s(".myLifeUWPaddingleft label", 3, null)
