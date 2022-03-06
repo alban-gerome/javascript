@@ -4,7 +4,7 @@ MeasureCamp North America - Feb 26th 2022
 Chrome DevTools snippets and overrides for increased productivity
 -----------------------------------------------------------------
 
-**WARNING: If you report to a manager whose compensation depends on the size of the team they manage, do not use these scripts! It will ruin their plans to grow the team because you will be able to do so much more by yourself!**
+**WARNING: If you report to a manager whose compensation depends on the size of the team they manage, do not use these scripts! It will ruin their plans to grow the team because you will be able to do so much more by yourself! Or maybe just don't tell anybody!**
 
 You might be familiar with the DevTools Console and Network tab. What about the Sources tab? This will contain 2 features that you might not know:
 
@@ -124,7 +124,7 @@ Here's another example for several elements that have no id attributes on a give
 (o, s, ac) => [11, 13, 15, 16, 21, 25].map(aj => s(".myLifeUWPaddingleft label", aj, null))
 ```
 
-The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null, the snippet will click on all 6 DOM elements. Remember that the first items is item #0, item #1 is the second item, it's zero-based!
+The code above means that you have a collection of DOM elements for the ".myLifeUWPaddingleft label" CSS selector rather than just one, and you need item #11, #13, #15, #16, #21 and #25. Since the value is null and click is the defaut action, the snippet will click on all 6 DOM elements. Remember that the first items is item #0, item #1 is the second item, it's zero-based!
 
 If you need to wait before interacting with a specific field, here's an example:
 
